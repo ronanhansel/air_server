@@ -42,9 +42,6 @@ def stream_handler(message):
             'priority': 'high',
         }
         response = requests.post("https://fcm.googleapis.com/fcm/send", headers=headers, data=json.dumps(body))
-        print(response.status_code)
-
-        print(response.json())
 
 
 my_stream = db.child("5").stream(stream_handler, None)
