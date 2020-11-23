@@ -1,3 +1,5 @@
+import time
+
 import pyrebase
 import requests
 import json
@@ -45,3 +47,4 @@ def stream_handler(message):
 
 
 my_stream = db.child("5").stream(stream_handler, None)
+time.sleep(60)
