@@ -3,7 +3,7 @@ import time
 import pyrebase
 import requests
 import json
-from pusher_push_notifications import PushNotifications
+
 
 firebaseConfig = {
     'apiKey': "AIzaSyAsYne7Q_5YyqQ012_e13oFjUCvnh2ZrSc",
@@ -18,15 +18,12 @@ firebaseConfig = {
 firebase = pyrebase.initialize_app(firebaseConfig)
 
 db = firebase.database()
-beams_client = PushNotifications(
-    instance_id='f800f676-a0af-4fee-be95-06a8d254a474',
-    secret_key='4FB41C68E36B684C59D679ABA4A0803363C2AE1D794BACA6F8CDD9EBB8FEB845',
-)
+
 
 
 def stream_handler(message):
     print(message)
-    if message['data'] > 200:
+    if message['data'] > 500:
         serverToken = 'AAAAwZW1mqA:APA91bEoA3eTrSYqk_TzGfDqL3zs8NijKvRuVCXt0cFyPlc1q1Y2X2iCxktKVtVtk8BRGq7NZ03WKc-esU1jmI68fsp4JuMPRohPDm4bjq4WunQeBgdFI3M3ItLsZv7r_oSl0_KnL7cC'
         deviceToken = 'fMJAruTgShe3lkqnsprSJy:APA91bEP97Y6TSW_wHBWyd2TPu9K2bQRd1tiir7s0vWPgaxNptMRMKqz9iFQ4baihVIlyxkzzvbTKxkUrW_Y75XrsdITYenVW1H5zNy6Q1OCz5mukuEse_pA-XEl9ZT8kSmcloHBthA-'
 
@@ -36,7 +33,7 @@ def stream_handler(message):
         }
 
         body = {
-            'notification': {'title': 'DANGEROUS',
+            'notification': {'title': 'DANGEROUS: GAS',
                              'body': 'GAS  level is dangerously high: ' + str(message['data']) + ' ppm'
                              },
             'to':
@@ -47,3 +44,54 @@ def stream_handler(message):
 
 
 my_stream = db.child("5").stream(stream_handler, None)
+
+
+def stream_handler(message):
+    print(message)
+    if message['data'] > 500:
+        serverToken = 'AAAAwZW1mqA:APA91bEoA3eTrSYqk_TzGfDqL3zs8NijKvRuVCXt0cFyPlc1q1Y2X2iCxktKVtVtk8BRGq7NZ03WKc-esU1jmI68fsp4JuMPRohPDm4bjq4WunQeBgdFI3M3ItLsZv7r_oSl0_KnL7cC'
+        deviceToken = 'fMJAruTgShe3lkqnsprSJy:APA91bEP97Y6TSW_wHBWyd2TPu9K2bQRd1tiir7s0vWPgaxNptMRMKqz9iFQ4baihVIlyxkzzvbTKxkUrW_Y75XrsdITYenVW1H5zNy6Q1OCz5mukuEse_pA-XEl9ZT8kSmcloHBthA-'
+
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'key=' + serverToken,
+        }
+
+        body = {
+            'notification': {'title': 'DANGEROUS: CO',
+                             'body': 'CO level is dangerously high: ' + str(message['data']) + ' ppm'
+                             },
+            'to':
+                deviceToken,
+            'priority': 'high',
+        }
+        response = requests.post("https://fcm.googleapis.com/fcm/send", headers=headers, data=json.dumps(body))
+
+
+my_stream = db.child("7").stream(stream_handler, None)
+
+
+def stream_handler(message):
+    print(message)
+    if message['data'] > 500:
+        serverToken = 'AAAAwZW1mqA:APA91bEoA3eTrSYqk_TzGfDqL3zs8NijKvRuVCXt0cFyPlc1q1Y2X2iCxktKVtVtk8BRGq7NZ03WKc-esU1jmI68fsp4JuMPRohPDm4bjq4WunQeBgdFI3M3ItLsZv7r_oSl0_KnL7cC'
+        deviceToken = 'fMJAruTgShe3lkqnsprSJy:APA91bEP97Y6TSW_wHBWyd2TPu9K2bQRd1tiir7s0vWPgaxNptMRMKqz9iFQ4baihVIlyxkzzvbTKxkUrW_Y75XrsdITYenVW1H5zNy6Q1OCz5mukuEse_pA-XEl9ZT8kSmcloHBthA-'
+
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'key=' + serverToken,
+        }
+
+        body = {
+            'notification': {'title': 'DANGEROUS: CO2',
+                             'body': 'CO2 level is dangerously high: ' + str(message['data']) + ' ppm'
+                             },
+            'to':
+                deviceToken,
+            'priority': 'high',
+        }
+        response = requests.post("https://fcm.googleapis.com/fcm/send", headers=headers, data=json.dumps(body))
+
+
+my_stream = db.child("135").stream(stream_handler, None)
+
