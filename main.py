@@ -33,8 +33,8 @@ def stream_handler(message):
         }
 
         body = {
-            'notification': {'title': 'DANGEROUS: GAS',
-                             'body': 'GAS  level is dangerously high: ' + str(message['data']) + ' ppm'
+            'notification': {'title': 'NGUY HIỂM: GAS',
+                             'body': 'GAS Đang ở mức độ đáng cảnh báo: ' + str(message['data']) + ' ppm'
                              },
             'to':
                 deviceToken,
@@ -58,8 +58,8 @@ def stream_handler(message):
         }
 
         body = {
-            'notification': {'title': 'DANGEROUS: CO',
-                             'body': 'CO level is dangerously high: ' + str(message['data']) + ' ppm'
+            'notification': {'title': 'NGUY HIỂM: CO',
+                             'body': 'CO Đang ở mức độ đáng cảnh báo: ' + str(message['data']) + ' ppm'
                              },
             'to':
                 deviceToken,
@@ -83,8 +83,8 @@ def stream_handler(message):
         }
 
         body = {
-            'notification': {'title': 'DANGEROUS: CO2',
-                             'body': 'CO2 level is dangerously high: ' + str(message['data']) + ' ppm'
+            'notification': {'title': 'NGUY HIỂM: CO2',
+                             'body': 'CO2 Đang ở mức độ đáng cảnh báo: ' + str(message['data']) + ' ppm'
                              },
             'to':
                 deviceToken,
