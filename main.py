@@ -3,7 +3,7 @@
 import pyrebase
 import requests
 import json
-
+from pusher_push_notifications import PushNotifications
 
 firebaseConfig = {
     'apiKey': "AIzaSyAsYne7Q_5YyqQ012_e13oFjUCvnh2ZrSc",
@@ -18,7 +18,10 @@ firebaseConfig = {
 firebase = pyrebase.initialize_app(firebaseConfig)
 
 db = firebase.database()
-
+beams_client = PushNotifications(
+    instance_id='f800f676-a0af-4fee-be95-06a8d254a474',
+    secret_key='4FB41C68E36B684C59D679ABA4A0803363C2AE1D794BACA6F8CDD9EBB8FEB845',
+)
 
 
 def stream_handler(message):
