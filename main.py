@@ -40,7 +40,7 @@ def stream_handler(message):
                              'body': 'GAS Đang ở mức độ đáng cảnh báo: ' + str(message['data']) + ' ppm'
                              },
             'to':
-                deviceToken,
+                "/TopicName",
             'priority': 'high',
         }
         response = requests.post("https://fcm.googleapis.com/fcm/send", headers=headers, data=json.dumps(body))
