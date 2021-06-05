@@ -16,7 +16,7 @@ firebaseConfig = {
     'measurementId': "G-FQGPPP675Z"
 }
 firebase = pyrebase.initialize_app(firebaseConfig)
-device = 'cVHTB2bXT3u3XSBgKeTxlq:APA91bEkPih5s4yo_eURHy33jR0myuO4IsV1sF0pvtL85pxsNRgJOcnpzq0T4abMH6-KhcVlwLB-Mufwq0o561nSudNUHKrBRvq3hdu9hl86t_A3qZqxsEIMwMUcCvc39Nvuv9vNwg43'
+device = 'cVHTB2bXT3u3XSBgKeTxlq:APA91bEkPih5s4yo_eURHy33jR0myuO4IsV1sF0pvtL85pxsNRgJOcnpzq0T4abMH6-KhcVlwLB-Mufwq0o561nSudNUHKrBRvq3hdu9hl86t_A3qZqxsEIMwMUcCvc39Nvuv9vNwg43', 'chfwNH63TEqmYeAHRivkna:APA91bGK286s_Zik8R2-QhlLOZiUJm5YNxXxSA4nvpmPLniqjvqXGCVSRuAH7tH81NazZtoAtu60Cp2u9HSsKB82TngCQSbURwS7-Q2XLokGQies5eTQ2kNCwu-DNSbmTGPG9T8B95rG'
 db = firebase.database()
 beams_client = PushNotifications(
     instance_id='f800f676-a0af-4fee-be95-06a8d254a474',
