@@ -17,6 +17,10 @@ firebaseConfig = {
 firebase = pyrebase.initialize_app(firebaseConfig)
 device = 'chfwNH63TEqmYeAHRivkna:APA91bGK286s_Zik8R2-QhlLOZiUJm5YNxXxSA4nvpmPLniqjvqXGCVSRuAH7tH81NazZtoAtu60Cp2u9HSsKB82TngCQSbURwS7-Q2XLokGQies5eTQ2kNCwu-DNSbmTGPG9T8B95rG'
 db = firebase.database()
+# beams_client = PushNotifications(
+#     instance_id='f800f676-a0af-4fee-be95-06a8d254a474',
+#     secret_key='4FB41C68E36B684C59D679ABA4A0803363C2AE1D794BACA6F8CDD9EBB8FEB845',
+# )
 
 
 def stream_handler(message):
@@ -36,7 +40,7 @@ def stream_handler(message):
                              'body': 'GAS Đang ở mức độ đáng cảnh báo: ' + str(message['data']) + ' ppm'
                              },
             'to':
-                '/topics/TopicName',
+                deviceToken,
             'priority': 'high',
         }
         response = requests.post("https://fcm.googleapis.com/fcm/send", headers=headers, data=json.dumps(body))
@@ -62,7 +66,7 @@ def stream_handler(message):
                              'body': 'CO Đang ở mức độ đáng cảnh báo: ' + str(message['data']) + ' ppm'
                              },
             'to':
-                '/topics/TopicName',
+                '/TopicName/',
             'priority': 'high',
         }
         response = requests.post("https://fcm.googleapis.com/fcm/send", headers=headers, data=json.dumps(body))
@@ -88,7 +92,7 @@ def stream_handler(message):
                              'body': 'CO2 Đang ở mức độ đáng cảnh báo: ' + str(message['data']) + ' ppm'
                              },
             'to':
-                '/topics/TopicName',
+                '/TopicName/',
             'priority': 'high',
         }
         response = requests.post("https://fcm.googleapis.com/fcm/send", headers=headers, data=json.dumps(body))
