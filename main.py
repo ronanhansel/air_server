@@ -40,7 +40,7 @@ def stream_handler(message):
                              'body': 'GAS Đang ở mức độ đáng cảnh báo: ' + str(message['data']) + ' ppm'
                              },
             'to':
-                "/TopicName",
+                "/TopicName/",
             'priority': 'high',
         }
         response = requests.post("https://fcm.googleapis.com/fcm/send", headers=headers, data=json.dumps(body))
@@ -66,7 +66,7 @@ def stream_handler(message):
                              'body': 'CO Đang ở mức độ đáng cảnh báo: ' + str(message['data']) + ' ppm'
                              },
             'to':
-                '/TopicName',
+                '/TopicName/',
             'priority': 'high',
         }
         response = requests.post("https://fcm.googleapis.com/fcm/send", headers=headers, data=json.dumps(body))
@@ -92,7 +92,7 @@ def stream_handler(message):
                              'body': 'CO2 Đang ở mức độ đáng cảnh báo: ' + str(message['data']) + ' ppm'
                              },
             'to':
-                '/TopicName',
+                '/TopicName/',
             'priority': 'high',
         }
         response = requests.post("https://fcm.googleapis.com/fcm/send", headers=headers, data=json.dumps(body))
