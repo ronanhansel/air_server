@@ -42,7 +42,6 @@ def stream_handler(message):
 
 
 my_stream = db.child("5").stream(stream_handler, None)
-print(type(db.child("5")))
 
 
 def stream_handler(message):
