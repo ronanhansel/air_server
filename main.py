@@ -46,7 +46,7 @@ my_stream = db.child("5").stream(stream_handler, None)
 
 def stream_handler(message):
     print(message)
-    if message['data'] > 50:
+    if message['data'] > 35:
         print('7 is high')
         serverToken = 'AAAAwZW1mqA:APA91bEoA3eTrSYqk_TzGfDqL3zs8NijKvRuVCXt0cFyPlc1q1Y2X2iCxktKVtVtk8BRGq7NZ03WKc-esU1jmI68fsp4JuMPRohPDm4bjq4WunQeBgdFI3M3ItLsZv7r_oSl0_KnL7cC'
 
