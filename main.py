@@ -1,11 +1,10 @@
-
 import pyrebase
 import requests
 import json
-from pusher_push_notifications import PushNotifications
+import os
 
 firebaseConfig = {
-    'apiKey': "AIzaSyAsYne7Q_5YyqQ012_e13oFjUCvnh2ZrSc",
+    'apiKey': os.getenv('apiKey'),
     'authDomain': "airify-b9e29.firebaseapp.com",
     'databaseURL': "https://airify-b9e29.firebaseio.com",
     'projectId': "airify-b9e29",
@@ -15,15 +14,13 @@ firebaseConfig = {
     'measurementId': "G-FQGPPP675Z"
 }
 firebase = pyrebase.initialize_app(firebaseConfig)
-device = 'chfwNH63TEqmYeAHRivkna:APA91bGK286s_Zik8R2-QhlLOZiUJm5YNxXxSA4nvpmPLniqjvqXGCVSRuAH7tH81NazZtoAtu60Cp2u9HSsKB82TngCQSbURwS7-Q2XLokGQies5eTQ2kNCwu-DNSbmTGPG9T8B95rG'
 db = firebase.database()
-
+serverToken = os.getenv('serverToken')
 
 def stream_handler(message):
     print(message)
     if message['data'] > 500:
         print('5 is high')
-        serverToken = 'AAAAwZW1mqA:APA91bEoA3eTrSYqk_TzGfDqL3zs8NijKvRuVCXt0cFyPlc1q1Y2X2iCxktKVtVtk8BRGq7NZ03WKc-esU1jmI68fsp4JuMPRohPDm4bjq4WunQeBgdFI3M3ItLsZv7r_oSl0_KnL7cC'
 
         headers = {
             'Content-Type': 'application/json',
@@ -48,7 +45,6 @@ def stream_handler(message):
     print(message)
     if message['data'] > 35:
         print('7 is high')
-        serverToken = 'AAAAwZW1mqA:APA91bEoA3eTrSYqk_TzGfDqL3zs8NijKvRuVCXt0cFyPlc1q1Y2X2iCxktKVtVtk8BRGq7NZ03WKc-esU1jmI68fsp4JuMPRohPDm4bjq4WunQeBgdFI3M3ItLsZv7r_oSl0_KnL7cC'
 
         headers = {
             'Content-Type': 'application/json',
@@ -73,7 +69,6 @@ def stream_handler(message):
     print(message)
     if message['data'] > 1000:
         print('135 is high')
-        serverToken = 'AAAAwZW1mqA:APA91bEoA3eTrSYqk_TzGfDqL3zs8NijKvRuVCXt0cFyPlc1q1Y2X2iCxktKVtVtk8BRGq7NZ03WKc-esU1jmI68fsp4JuMPRohPDm4bjq4WunQeBgdFI3M3ItLsZv7r_oSl0_KnL7cC'
 
         headers = {
             'Content-Type': 'application/json',
